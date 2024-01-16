@@ -36,10 +36,14 @@ public class Ex03_FullAge {
 		System.out.println("만나이: " + age);
 		
 		// Refactoring
-		int fullAge = year - bYear;
+		int age2 = year - bYear;
 		if(month < bMonth || (month == bMonth && day < bDay))
-			fullAge--;
-		System.out.println("만나이: " + age);
+			age2--;
+		System.out.println("만나이: " + age2);
+		
+		int age3 = (month < bMonth || (month == bMonth && day < bDay)) ?
+				year - bYear - 1 : year - bYear;
+		System.out.println("만나이: " + age3);
 	}
 	
 }
