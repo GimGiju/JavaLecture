@@ -28,7 +28,7 @@ public class Ex03_TypeConversion {
 		// 연산에서의 자동 타입 변환
 		long k = a + b + c;   // short + int + long
 		double l = d + e;     // float + double
-		double m = a / b;     // int / int ==> double 정수 나누기 정수는 실수 /표시는 나누기 표시
+		double m = a / b;     // int / int ==> truncate후 정수  ==> double로 변환
 		System.out.println("k: " + k + ", l: " + l + ",m: " + m);
 	}
 
