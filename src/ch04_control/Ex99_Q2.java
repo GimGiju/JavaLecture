@@ -14,7 +14,7 @@ public class Ex99_Q2 {
 		case 7:
 			System.out.println("C학점"); break;
 		default:
-			System.out.println("F학점"); break;
+			System.out.println("F학점"); //break; 는 필요없음
 		}
 		
 	}
