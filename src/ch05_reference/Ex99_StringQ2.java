@@ -8,14 +8,13 @@ public class Ex99_StringQ2 {
 		int t = 0;
 		for( int h = 0; h < 24; h++){
 		    for(int m = 0; m < 60; m++){
-		        
-		            String c =" h + ':' + m";
-		            if(c.indexOf('3') >= 0)
+	            String c = h + ":" + m;     // h + ':' + m 은 오류 ''--> "" 사용
+	            if(c.indexOf('3') >= 0)
 		                 t += 60;
 		    }
 		}
-		    System.out.println("하루동안 3인 표시되는 시간은" + t + "초 입니다" );
-		}
+	    System.out.println("하루동안 3인 표시되는 시간은" + t + "초 입니다" );
 	}
+}
 
 
