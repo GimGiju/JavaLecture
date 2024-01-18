@@ -1,6 +1,6 @@
 package ch05_reference;
 
-public class Ex99_StringQ3 {
+public class Ex99_Q3maxPal {
 
 	public static void main(String[] args) {
 		// 3. 두개의 세자리수를 곱해서 나온 결과가 palindrome일때

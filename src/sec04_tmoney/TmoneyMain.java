@@ -1,0 +1,26 @@
+package sec04_tmoney;
+
+import java.util.Scanner;
+
+public class TmoneyMain {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("나이> ");
+		int age = Integer.parseInt(scan.nextLine());
+		System.out.println("금액> ");
+		int cash = scan.nextInt();
+		scan.close();
+		
+		Tmoney tm = new Tmoney(age, cash);
+		System.out.println(tm);
+		
+		for(int i = 1; i < Integer.MAX_VALUE; i++) {
+			if(!tm.ride())
+				break;
+			System.out.print(i + "회 탑승후 ");
+			System.out.println(tm);
+		}		
+	}
+
+}

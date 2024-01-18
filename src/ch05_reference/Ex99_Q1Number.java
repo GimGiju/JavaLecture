@@ -2,7 +2,7 @@ package ch05_reference;
 
 import java.util.Arrays;
 
-public class Ex99_StringQ1 {
+public class Ex99_Q1Number {
 
 	public static void main(String[] args) {
 		//1. 1에서 1000사이에 0은 몇번, 1은 몇번, ...., 9는 몇번 사용되었는가?
