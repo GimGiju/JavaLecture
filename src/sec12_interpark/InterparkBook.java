@@ -11,7 +11,7 @@ public class InterparkBook {
 	public InterparkBook() { }
 
 	public InterparkBook(int rank, String title, String author, String translator, String company, int price) {
-		super();
+		
 		this.rank = rank;
 		this.title = title;
 		this.author = author;
