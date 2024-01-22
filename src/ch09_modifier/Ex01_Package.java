@@ -5,9 +5,9 @@ package ch09_modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import sec01_member.Member;
-import sec05_melonchart.MelonChart;
-import sec12_interpark.InterparkBook;
+import ch06_class.sec01_member.Member;
+import ch06_class.sec05_melonchart.MelonChart;
+import ch06_class.sec12_interpark.InterparkBook;
 
 public class Ex01_Package {
 

@@ -1,4 +1,4 @@
-package sec02_customer;
+package ch06_class.sec02_customer;
 
 public class CustomerMain {
 

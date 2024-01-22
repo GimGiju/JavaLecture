@@ -1,4 +1,4 @@
-package sec12_interpark;
+package ch06_class.sec12_interpark;
 
 public class InterparkBookMain {
 

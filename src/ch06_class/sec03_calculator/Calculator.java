@@ -1,4 +1,4 @@
-package sec03_calculator;
+package ch06_class.sec03_calculator;
 
 public class Calculator {
 	public int add(int x, int y) {

@@ -1,4 +1,4 @@
-package sec06_interpark;
+package ch06_class.sec06_interpark;
 
 
 public class InterparkMain {

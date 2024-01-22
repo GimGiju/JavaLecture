@@ -1,4 +1,4 @@
-package sec11_melon;
+package ch06_class.sec11_melon;
 
 import java.util.ArrayList;
 import java.util.List;

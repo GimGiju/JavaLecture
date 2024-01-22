@@ -1,4 +1,4 @@
-package sec01_member;
+package ch06_class.sec01_member;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package sec05_melonchart;
+package ch06_class.sec05_melonchart;
 
 
 
