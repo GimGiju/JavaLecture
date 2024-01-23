@@ -13,20 +13,26 @@ public class Ex99_Alarm {
 		scan.close();
 		
 		
-		int newHour = 0, newMin = 0;
-
-		if(minute >= 45){
-		    newHour = hour;
-		    newMin = minute - 45;
-		}else{
-		    if (hour == 0){
-		        newHour = 23;
-		        newMin = minute + 60 - 45;
-		    }else {
-		        newHour = hour -1;
-		        newMin = minute + 6- - 45;
-		    }
+		int newHour = hour, newMin = 0;
+		if (minute >= 45)
+			newMin = minute - 45;
+		else {
+			if (hour % 24 == 0) {
+				newHour = 23;
+				newMin = minute + 60 - 45;
+			} else {
+				newHour = hour - 1;
+				newMin = minute + 60 - 45;
+			}
 		}
-		System.out.println(hour, "시" , minute, "분" --> newHour, "시", newMin,"분" );
-	
+		System.out.printf("%02d:%02d%n", newHour, newMin);
+		
+		// Refactoring
+		newHour = hour; newMin = minute - 45;
+		if (minute < 45) {
+			newMin = minute + 60 - 45;
+			newHour = (hour % 24 == 0) ? 23 : hour - 1;
+		}
+		System.out.printf("%02d:%02d%n", newHour, newMin);
+	}
 }

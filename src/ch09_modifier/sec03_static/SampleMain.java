@@ -1,4 +1,4 @@
-package sec03_static;
+package ch09_modifier.sec03_static;
 
 public class SampleMain {
 

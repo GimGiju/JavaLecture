@@ -11,5 +11,5 @@ public interface AccountService {
 	void withdraw(Account[] accountArray);
 	
 	Account findAccount(String ano, Account[] accountArray);
-	
+
 }

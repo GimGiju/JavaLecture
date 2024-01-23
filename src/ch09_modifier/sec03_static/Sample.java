@@ -1,4 +1,4 @@
-package sec03_static;
+package ch09_modifier.sec03_static;
 
 public class Sample {           // 상수값을 static으로 설정해서 하는 예시
 	int instanceField;
