@@ -1,4 +1,4 @@
-package abc;
+package ch09_modifier.sec02_access.ABC;
 
 public class B {
 	void abc() {

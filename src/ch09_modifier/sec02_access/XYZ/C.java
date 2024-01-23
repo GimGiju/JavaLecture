@@ -1,7 +1,6 @@
-package xyz;
+package ch09_modifier.sec02_access.XYZ;
 
-import abc.A;
-
+import ch09_modifier.sec02_access.ABC.A;
 
 public class C {
 	void xyz() {

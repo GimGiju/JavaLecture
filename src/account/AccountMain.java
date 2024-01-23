@@ -1,4 +1,4 @@
-package Bank;
+package account;
 
 import java.util.Scanner;
 
@@ -81,6 +81,7 @@ public class AccountMain {
 		System.out.print("예금액 : ");
 		int money = scanner.nextInt();
 		Account account = findAccount(ano);
+		account.setBalance(account.getBalance() + money );    // account.getBalance() 저장된 값을 입력한 money의 값을 더해줌
 		System.out.println("결과 : 예금이 성공되었습니다. ");
 	}
 
@@ -93,7 +94,9 @@ public class AccountMain {
 		System.out.print("출금액 : ");
 		int money = scanner.nextInt();
 		Account account = findAccount(ano);
-
+		
+		account.setBalance(account.getBalance() - money );
+		
 		System.out.println("결과: 출금이 성공되었습니다.");
 	}
 
@@ -101,8 +104,8 @@ public class AccountMain {
 		Account account = null;
 		for (int i = 0; i < accountArray.length; i++) {
 			if (accountArray[i] != null) {
-				String dbAno = accountArray[i].getAno();
-				if (dbAno.equals(ano)) {
+				String DBAno = accountArray[i].getAno();
+				if (DBAno.equals(ano)) {
 					account = accountArray[i];
 					break;
 				}

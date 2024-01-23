@@ -1,11 +1,11 @@
-package Bank;
+package ch09_modifier.sec12_bank;
 
 public class Account {
 	private String ano;
 	private String owner;
-	private String balance;
-
-	public Account(String ano, String owner, String balance) {
+	private int balance;
+	
+	public Account(String ano, String owner, int balance) {
 		this.ano = ano;
 		this.owner = owner;
 		this.balance = balance;
@@ -27,12 +27,13 @@ public class Account {
 		this.owner = owner;
 	}
 
-	public String getBalance() {
+	public int getBalance() {
 		return balance;
 	}
 
-	public void setBalance(String balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-
+	
+	
 }
