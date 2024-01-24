@@ -32,86 +32,23 @@ public class AccountMain {
 	}
 
 	private static void createAccount() { // 생성
-		System.out.println("------------");
-		System.out.println("계좌생성");
-		System.out.println("------------");
-		System.out.print("계좌번호 : ");
-		String ano = scanner.next();
-		System.out.print("계좌주 : ");
-		String owner = scanner.next();
-		System.out.print("초기입금액 : ");
-		String balance = scanner.next();
-		Account newAccount = new Account(ano, owner, balance);
-		for (int i = 0; i < accountArray.length; i++) {
-			if (accountArray[i] == null) {
-				accountArray[i] = newAccount;
-				System.out.println("결과: 계좌가 생성 되었습니다.");
-				break;
-			}
-		}
-		;
-
+	
+	
 	}
 
 	private static void accountList() { // 목록
-		System.out.println("------------");
-		System.out.println("계좌목록");
-		System.out.println("------------");
-
-		for (int i = 0; i < accountArray.length; i++) {
-			Account account = accountArray[i];
-			if (account != null) {
-				System.out.print(account.getAno());
-				System.out.print("    ");
-				System.out.print(account.getOwner());
-				System.out.print("    ");
-				System.out.print(account.getBalance());
-				System.out.println();
-			}
-		}
-
+		
+		
 	}
 
 	private static void deposit() { // 예금
-		System.out.println("------------");
-		System.out.println("예금");
-		System.out.println("------------");
-		System.out.print("계좌번호 : ");
-		String ano = scanner.next();
-		System.out.print("예금액 : ");
-		int money = scanner.nextInt();
-		Account account = findAccount(ano);
-		account.setBalance(account.getBalance() + money );    // account.getBalance() 저장된 값을 입력한 money의 값을 더해줌
-		System.out.println("결과 : 예금이 성공되었습니다. ");
+		
 	}
 
 	private static void withdraw() { // 출금
-		System.out.println("------------");
-		System.out.println("출금");
-		System.out.println("------------");
-		System.out.print("계좌번호 : ");
-		String ano = scanner.next();
-		System.out.print("출금액 : ");
-		int money = scanner.nextInt();
-		Account account = findAccount(ano);
 		
-		account.setBalance(account.getBalance() - money );
-		
-		System.out.println("결과: 출금이 성공되었습니다.");
-	}
-
+	}	
 	private static Account findAccount(String ano) {
-		Account account = null;
-		for (int i = 0; i < accountArray.length; i++) {
-			if (accountArray[i] != null) {
-				String DBAno = accountArray[i].getAno();
-				if (DBAno.equals(ano)) {
-					account = accountArray[i];
-					break;
-				}
-			}
-		}
-		return account;
-
+		return null;
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MessageMain {
 	private static Scanner sc = new Scanner(System.in);
-	private static Message messageService = new MessageServiceArrayImpl();
+	private static MessageService messageService = new MessageServiceArrayImpl();
 
 	public static void main(String[] args) {
 		boolean run = true;
@@ -21,9 +21,9 @@ public class MessageMain {
 			case 2:
 				messageService.messageListByWriter(String writer); break;
 			case 3:
-				messageService.insertMessage(messageService message);; break;
+				messageService.insertMessage();; break;
 			case 4:
-				messageService.updateMessage(messageService message); break;
+				messageService.updateMessage(); break;
 			case 5:
 				messageService.deleteMessage(); break;
 			case 6:
