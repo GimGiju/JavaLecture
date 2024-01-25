@@ -21,6 +21,7 @@ public class Main {
 		customerDao.updateCustomer(customer);
 		customerDao.deleteCustomer(34);
 		
+		
 		// SpringBoot에서 사용하는 경우
 //		@Autowired private CustomerDao customerDao;
 		// 프로그램이 실행될때 SpringBoot에서 CustomerDao 구현 객체를 주입시켜 줌

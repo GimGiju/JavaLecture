@@ -47,7 +47,7 @@ public class MemberMain {
 		
 	}
 
-	static List<Member>getMemberListAbove30(){
+	static List<Member>getMemberListAbove30(){            //나이가 30세 초과인 멤버리스트
 		List<Member> mList = new ArrayList<>();
 		for (Member m: list) {
 			if(m.getAge() > 30) {
@@ -57,7 +57,7 @@ public class MemberMain {
 		return mList;
 	}
 	
-	static List<Member> getMemberListByGender(String gender){
+	static List<Member> getMemberListByGender(String gender){   // 남성 멤버 리스트
 		List<Member> gList = new ArrayList<>();
 		for (Member g: list) {
 			if(g.getGender().equals(gender)) {
@@ -67,11 +67,11 @@ public class MemberMain {
 		return gList;
 	}
 	
-	static void insertMember(Member member) {
+	static void insertMember(Member member) {    // 새로운 맴버 추가
 		list.add(member);
 	}
 	
-	static void deleteMember(String name) {
+	static void deleteMember(String name) {     // 멤버 삭제
 		Member member = null;
 		for (Member m: list) {
 			if (m.getName().equals(name)) {
@@ -82,7 +82,7 @@ public class MemberMain {
 		list.remove(member);
 	}
 	
-	static void updateMember(Member member) {
+	static void updateMember(Member member) {    // 여성 멤버의 나이를 -1
 		int index = list.indexOf(member);
 		if(index >= 0) {
 			member.setAge(member.getAge() -1 );    // 나이를 하나 줄일때 사용

@@ -1,4 +1,4 @@
-package ch17_collection.part1_list.sec03_MemberArray;
+package ch17_collection.part1_list.sec03_MessageArray;
 
 import java.util.Scanner;
 
@@ -75,6 +75,7 @@ public class MessageMain {
 			}
 		}
 		System.out.println("프로그램 종료");
+		scan.close();
 	}
 
 }

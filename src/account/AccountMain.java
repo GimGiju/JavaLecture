@@ -1,12 +1,19 @@
 package account;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AccountMain {
-	private static Account[] accountArray = new Account[100];
-	private static Scanner scanner = new Scanner(System.in);
-
+	
 	public static void main(String[] args) {
+		AccountServiceImpl accountService = new AccountServiceImpl();
+		List<Account> list = new ArrayList<Account>();
+		
+		
+//		Account[] accountArray = new Account[100];
+		Scanner scanner = new Scanner(System.in);
+		
 		boolean run = true;
 		while (run) {
 			System.out.println("----------------------------------------------");
@@ -17,38 +24,18 @@ public class AccountMain {
 			int selectNo = scanner.nextInt();
 
 			if (selectNo == 1) {
-				createAccount();
+				accountService.createAccount(list);
 			} else if (selectNo == 2) {
-				accountList();
+				accountService.accountList(list);
 			} else if (selectNo == 3) {
-				deposit();
+				accountService.deposit();
 			} else if (selectNo == 4) {
-				withdraw();
+				accountService.withdraw();
 			} else if (selectNo == 5) {
 				run = false;
 			}
 		}
 		System.out.println("프로그램 종료");
 	}
-
-	private static void createAccount() { // 생성
-	
-	
-	}
-
-	private static void accountList() { // 목록
-		
-		
-	}
-
-	private static void deposit() { // 예금
-		
-	}
-
-	private static void withdraw() { // 출금
-		
-	}	
-	private static Account findAccount(String ano) {
-		return null;
-	}
 }
+	
