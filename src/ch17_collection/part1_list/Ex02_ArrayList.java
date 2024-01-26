@@ -25,7 +25,7 @@ public class Ex02_ArrayList {
 		numList.add(5);
 		System.out.println(numList);
 		
-		// 추출(인덱싱) 하는 방법
+		// 추출(인덱싱) 하는 방법 (리스트에서 저장된 정보를 가져오는st 방법)
 		System.out.println(list.get(1));
 			
 		// 데이터 추가

@@ -28,9 +28,9 @@ public class AccountMain {
 			} else if (selectNo == 2) {
 				accountService.accountList(list);
 			} else if (selectNo == 3) {
-				accountService.deposit();
+				accountService.deposit(list);
 			} else if (selectNo == 4) {
-				accountService.withdraw();
+				accountService.withdraw(list);
 			} else if (selectNo == 5) {
 				run = false;
 			}

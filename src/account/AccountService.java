@@ -8,9 +8,9 @@ public interface AccountService {
 	
 	void accountList(List<Account> list);
 	
-	void deposit();
+	void deposit(List<Account> list);
 	
-	void withdraw();
+	void withdraw(List<Account> list);
 	
-	Account findAccount(String ano);
+	int findAccount(String ano, List<Account> list);
 }
