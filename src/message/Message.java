@@ -1,80 +1,106 @@
-package ch12_interface.sec21_message;
+package message;
 
 import java.time.LocalDateTime;
 
 public class Message {
-	private int mid;
+	private String save;
+	private String mid;
 	private String content;
 	private String writer;
 	private LocalDateTime genTime;
-	private int isDeleted;
+	private int Deleted;
 	
 	public Message() { }
-	// for Insert
+
 	public Message(String content, String writer) {
 		this.content = content;
 		this.writer = writer;
 	}
-	// for update
-	public Message(int mid, String content, String writer) {
+
+	public Message(String mid, String save, String content, String writer) {
 		this.mid = mid;
+		this.save = save;
 		this.content = content;
 		this.writer = writer;
 	}
-	//for Read
-	public Message(int mid, String content, String writer, LocalDateTime genTime) {
+
+
+
+	public Message(String mid, String save, String content, String writer, LocalDateTime genTime) {
 		this.mid = mid;
+		this.save = save;
 		this.content = content;
 		this.writer = writer;
 		this.genTime = genTime;
 	}
-	public Message(int mid, String content, String writer, LocalDateTime genTime, int isDeleted) {
+
+	
+	public Message(String mid, String save, String content, String writer, LocalDateTime genTime, int deleted) {
 		this.mid = mid;
+		this.save = save;
 		this.content = content;
 		this.writer = writer;
 		this.genTime = genTime;
-		this.isDeleted = isDeleted;
+		Deleted = deleted;
 	}
+
+	
+
 	@Override
 	public String toString() {
-		return  String.format("%d  %s  %s  %s", mid, content, writer, 
-				genTime.toString().replaceAll("T", " ").substring(0, 16));
-//		return "Message [mid=" + mid + ", content=" + content + ", writer=" + writer + ", genTime=" + genTime
-//		+ ", isDeleted=" + isDeleted + "]";
+		return "Message [save=" + save + ", mid=" + mid +   ", content=" + content + ", writer=" + writer + ", genTime="
+				+ genTime + ", Deleted=" + Deleted + "]";
 	}
-	public int getMid() {
+
+	public String getMid() {
 		return mid;
 	}
-	public void setMid(int mid) {
+
+
+	public void setMid(String mid) {
 		this.mid = mid;
 	}
+
+
 	public String getContent() {
 		return content;
 	}
+
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+
 	public String getWriter() {
 		return writer;
 	}
+
+
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+
+
 	public LocalDateTime getGenTime() {
 		return genTime;
 	}
+
+
 	public void setGenTime(LocalDateTime genTime) {
 		this.genTime = genTime;
 	}
-	public int getIsDeleted() {
-		return isDeleted;
+
+
+	public int getDeleted() {
+		return Deleted;
 	}
-	public void setIsDeleted(int isDeleted) {
-		this.isDeleted = isDeleted;
+
+
+	public void setDeleted(int deleted) {
+		Deleted = deleted;
 	}
+	
+	
 	
 }
-		
-	
-	
-	
