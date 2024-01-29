@@ -16,9 +16,8 @@ public class Ex04_Copy {
 		byte[] buffer = new byte[4096];
 		while (true) {
 			int num = is.read(buffer);
-			if (num == -1) {
+			if (num == -1)
 				break;
-			}
 			os.write(buffer, 0, num);
 		}
 		os.flush(); os.close(); is.close();

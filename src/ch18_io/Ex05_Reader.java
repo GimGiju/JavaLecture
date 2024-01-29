@@ -12,27 +12,23 @@ public class Ex05_Reader {
 		// 1문자씩 읽기
 		while (true) {
 			int data = reader.read();
-			if (data == -1) {
+			if (data == -1)
 				break;
-			}
-			System.out.println((char) data);
+			System.out.print((char)data);
 		}
 		reader.close();
 		System.out.println();
-
+		
 		reader = new FileReader(new File("c:/Temp/README.txt"));
-
 		// 문자 배열로 읽기
 		char[] buffer = new char[100];
 		while (true) {
 			int num = reader.read(buffer);
 			System.out.println("읽은 문자수: " + num);
-			if (num == -1) {
+			if (num == -1)
 				break;
-			}
 			System.out.println(new String(buffer));
 		}
-
 		reader.close();
 	}
 

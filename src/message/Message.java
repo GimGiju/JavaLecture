@@ -1,63 +1,62 @@
 package message;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 public class Message {
-	private String save;
-	private String mid;
+
+	private int mid;
 	private String content;
 	private String writer;
-	private LocalDateTime genTime;
+	private LocalDate genTime;
 	private int Deleted;
 	
+	
+	
+	
+
 	public Message() { }
 
 	public Message(String content, String writer) {
 		this.content = content;
 		this.writer = writer;
 	}
+	
+	
 
-	public Message(String mid, String save, String content, String writer) {
+	public Message(int mid, String content, String writer) {
 		this.mid = mid;
-		this.save = save;
 		this.content = content;
 		this.writer = writer;
 	}
 
+	
 
-
-	public Message(String mid, String save, String content, String writer, LocalDateTime genTime) {
+	public Message(int mid, String content, String writer, LocalDate genTime) {
 		this.mid = mid;
-		this.save = save;
 		this.content = content;
 		this.writer = writer;
 		this.genTime = genTime;
 	}
 
 	
-	public Message(String mid, String save, String content, String writer, LocalDateTime genTime, int deleted) {
+
+	public Message(int mid, String content, String writer, LocalDate genTime, int deleted) {
 		this.mid = mid;
-		this.save = save;
 		this.content = content;
 		this.writer = writer;
 		this.genTime = genTime;
 		Deleted = deleted;
 	}
 
-	
 
-	@Override
-	public String toString() {
-		return "Message [save=" + save + ", mid=" + mid +   ", content=" + content + ", writer=" + writer + ", genTime="
-				+ genTime + ", Deleted=" + Deleted + "]";
-	}
 
-	public String getMid() {
+	public int getMid() {
 		return mid;
 	}
 
 
-	public void setMid(String mid) {
+	public void setMid(int mid) {
 		this.mid = mid;
 	}
 
@@ -82,12 +81,12 @@ public class Message {
 	}
 
 
-	public LocalDateTime getGenTime() {
+	public LocalDate getGenTime() {
 		return genTime;
 	}
 
 
-	public void setGenTime(LocalDateTime genTime) {
+	public void setGenTime(LocalDate genTime) {
 		this.genTime = genTime;
 	}
 

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MessageMain {
-	private static MessageService messageService = new MessageServiceListImpl();
+	private static MessageService messageService = new MessageServiceFileImpl();
 	private static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -13,15 +13,15 @@ public class MessageMain {
 		Message message = null;
 		int mid = 0;
 		boolean run = true;
-		
+
 		while (run) {
 			System.out.println("+=============+=================+==========+==========+==========+========+");
 			System.out.println("| 1. 전체목록 | 2.Writer별 목록 | 3.글쓰기 | 4.글수정 | 5.글삭제 | 6.종료 |");
 			System.out.println("+=============+=================+==========+==========+==========+========+");
 			System.out.print("선택> ");
-			
+
 			int selectNo = Integer.parseInt(scan.nextLine());
-			switch(selectNo) {
+			switch (selectNo) {
 			case 1:
 				list = messageService.getMessageListAll();
 				list.forEach(x -> System.out.println(x));
@@ -72,7 +72,7 @@ public class MessageMain {
 				messageService.deleteMessage(mid);
 				break;
 			case 6:
-				run = false; 
+				run = false;
 				messageService.close();
 				break;
 			default:

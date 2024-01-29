@@ -54,7 +54,7 @@ public class Main {
 //				System.out.println(i); // 에러 발생한 위치를 확인해서 에러 수정
 //			}
 //		}
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 100; i++)
 			System.out.println(list.get(i));
 		
 	}

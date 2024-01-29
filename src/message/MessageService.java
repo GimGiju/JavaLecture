@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface MessageService {
 	
-	void messageSaveList(List<Message>list);
+	
 
 	Message findbyMid(List<Message>list );
 
