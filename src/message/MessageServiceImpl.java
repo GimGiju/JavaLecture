@@ -51,6 +51,8 @@ public class MessageServiceImpl implements MessageService {
 		System.out.println("====================");
 		System.out.println("2.글쓴이별 목록");
 		System.out.println("====================");
+		System.out.println("작성자 이름: ");
+		
 
 	}
 

@@ -1,4 +1,4 @@
-package ch17_collection.part1_list.sec03_MessageArray;
+package ch18_io.sec11_message;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -74,6 +74,11 @@ public class MessageServiceListImpl implements MessageService {
 			}
 		}
 		list.remove(message);
+	}
+
+	@Override
+	public void close() {
+		
 	}
 
 }
