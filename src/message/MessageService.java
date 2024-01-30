@@ -7,13 +7,13 @@ public interface MessageService {
 	
 	
 
-	Message findbyMid(List<Message>list );
+	void findbyMid(List<Message>list );
 
 	void messasgeList(List<Message> list);
 
 	void messageListByWriter(List<Message>list);
 
-	Message insertMessage();
+	Message insertMessage(int index);
 
 	void updateMessage(List<Message>list);
 

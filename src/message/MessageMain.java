@@ -10,6 +10,7 @@ public class MessageMain {
 		MessageService messageService = new MessageServiceImpl();
 		List<Message> list = new ArrayList<Message>();
 		Scanner scan = new Scanner(System.in);
+		int index = 1;
 		
 		boolean see = true;
 		while(see) {
@@ -30,7 +31,8 @@ public class MessageMain {
 			}else if(select == 2){
 				messageService.messageListByWriter(list);
 			}else if(select == 3){
-				Message me = messageService.insertMessage();
+				Message me = messageService.insertMessage(index);
+				index++;
 				list.add(me);
 			}else if(select == 4){
 				messageService.updateMessage(list);

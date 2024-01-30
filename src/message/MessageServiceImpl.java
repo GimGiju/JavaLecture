@@ -4,13 +4,24 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.text.AbstractDocument.Content;
+
 public class MessageServiceImpl implements MessageService {
 	Scanner scan = new Scanner(System.in);
 
 	@Override
-	public Message findbyMid(List<Message> list) {
+	public void findbyMid(List<Message> list) {
+		String Writer = scan.nextLine();
 		
-		return null;
+		for (int k = 0; k < list.size(); k++) {
+			if (list.get(k).getWriter().equals(Writer)) {
+				System.out.print(list.get(k).getMid() + "\t");
+				System.out.print(list.get(k).getWriter() + "\t");
+				System.out.print(list.get(k).getContent() + "\t");
+				System.out.println(list.get(k).getGenTime());
+			}
+		}
+		
 	}
 
 //	@Override
@@ -38,8 +49,8 @@ public class MessageServiceImpl implements MessageService {
 		System.out.println("====================");
 		for (int i = 0; i < list.size(); i++) {
 			System.out.print(list.get(i).getMid() + "\t");
-			System.out.print(list.get(i).getContent() + "\t");
 			System.out.print(list.get(i).getWriter() + "\t");
+			System.out.print(list.get(i).getContent() + "\t");
 			System.out.println(LocalDate.now());
 		}
 
@@ -51,32 +62,35 @@ public class MessageServiceImpl implements MessageService {
 		System.out.println("2.글쓴이별 목록");
 		System.out.println("====================");
 		System.out.println("작성자 이름: ");
-		String writer = scan.nextLine();
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getWriter().equals(writer)) {
-				System.out.print(list.get(i).getWriter() + "\t");
-				System.out.print(list.get(i).getContent() + "\t");
-				System.out.println(list.get(i).getGenTime());
-			}
-
-		}
+		
+		findbyMid(list);
+		
+//		for (int i = 0; i < list.size(); i++) {
+//			if (list.get(i).getWriter().equals(writer)) {
+//				System.out.print(list.get(i).getWriter() + "\t");
+//				System.out.print(list.get(i).getContent() + "\t");
+//				System.out.println(list.get(i).getGenTime());
+//			}
+//
+//		}
 
 	}
 
 	@Override
-	public Message insertMessage() {
+	public Message insertMessage(int index) {
 		System.out.println("====================");
 		System.out.println("3.글쓰기");
 		System.out.println("====================");
-		System.out.println("메시지 순서: ");
+		
 
 		Message msa = new Message();
-		msa.setMid(Integer.parseInt(scan.nextLine()));
+		msa.setMid(index);
 		System.out.println("작성자 이름: ");
 		msa.setWriter(scan.nextLine());
 		System.out.println("메시지 내용: ");
 		msa.setContent(scan.nextLine());
 		msa.setGenTime(LocalDate.now());
+		
 		return msa;
 	}
 
@@ -96,24 +110,37 @@ public class MessageServiceImpl implements MessageService {
 //			}
 //		}
 //	}
-	
+
 	@Override
-	   public void updateMessage(List<Message> list) {     //작성자로 검색하기, 작성자가 쓴 글이 여러개일때 어떤글을 수정할지 선택 가능하게 만들기.
-	      System.out.println("====================");
-	      System.out.println("4.글 수정");
-	      System.out.println("====================");
-	      System.out.println("메시지 작성자: ");
-	      String Writer = scan.nextLine();
-	      System.out.println("수정할 내용: ");
-	      String content = scan.nextLine();
-	      for (int i = 0; i < list.size(); i++) {
-	         if (list.get(i).getWriter().equals(Writer)) {
-	        	 list.get(i).setContent(content);
-	         }
-	      }
-	     
-	      
-	   }
+	public void updateMessage(List<Message> list) { // 작성자로 검색하기, 작성자가 쓴 글이 여러개일때 어떤글을 수정할지 선택 가능하게 만들기.
+		System.out.println("====================");
+		System.out.println("4.글 수정");
+		System.out.println("====================");
+		System.out.println("메시지 작성자: ");
+		String Writer = scan.nextLine();
+		findbyMid(list);
+		
+//		for (int k = 0; k < list.size(); k++) {
+//			if (list.get(k).getWriter().equals(Writer)) {
+//				System.out.print(list.get(k).getMid() + "\t");
+//				System.out.print(list.get(k).getWriter() + "\t");
+//				System.out.print(list.get(k).getContent() + "\t");
+//				System.out.println(list.get(k).getGenTime());
+//			}
+//		}
+		System.out.println("수정할 메시지의 순서: ");
+		int mid = Integer.parseInt(scan.nextLine());
+		System.out.println("수정할 내용: ");
+		String content = scan.nextLine();
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getWriter().equals(Writer)) {
+				if (list.get(i).getMid() == mid) {
+					list.get(i).setContent(content);
+				}
+			}
+		}
+
+	}
 
 	@Override
 	public void deleteMessage(List<Message> list) {
