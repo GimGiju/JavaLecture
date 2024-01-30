@@ -9,7 +9,7 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public Message findbyMid(List<Message> list) {
-
+		
 		return null;
 	}
 
@@ -98,12 +98,22 @@ public class MessageServiceImpl implements MessageService {
 //	}
 	
 	@Override
-	public void updateMessage(List<Message> list) {     //작성자로 검색하기, 작성자가 쓴 글이 여러개일때 어떤글을 수정할지 선택 가능하게 만들기.
-		System.out.println("====================");
-		System.out.println("4.글 수정");
-		System.out.println("====================");
-		System.
-	}
+	   public void updateMessage(List<Message> list) {     //작성자로 검색하기, 작성자가 쓴 글이 여러개일때 어떤글을 수정할지 선택 가능하게 만들기.
+	      System.out.println("====================");
+	      System.out.println("4.글 수정");
+	      System.out.println("====================");
+	      System.out.println("메시지 작성자: ");
+	      String Writer = scan.nextLine();
+	      System.out.println("수정할 내용: ");
+	      String content = scan.nextLine();
+	      for (int i = 0; i < list.size(); i++) {
+	         if (list.get(i).getWriter().equals(Writer)) {
+	        	 list.get(i).setContent(content);
+	         }
+	      }
+	     
+	      
+	   }
 
 	@Override
 	public void deleteMessage(List<Message> list) {
