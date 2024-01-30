@@ -1,7 +1,11 @@
 package extra_crawling.csv;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CsvUtilImpl  implements CsvUtil{
@@ -23,8 +27,37 @@ public class CsvUtilImpl  implements CsvUtil{
 
 	@Override
 	public List<List<String>> readCsv(String filename, String separator, int skipLine) {
-		// TODO Auto-generated method stub
-		return null;
+		List<List<String>>csvList = new ArrayList<List<String>>();
+		BufferedReader br = null;
+		int lineNo = 0;
+		try {
+			br = new BufferedReader(new FileReader(filename));
+			while(true) {
+				String line = br.readLine();
+				if(line == null) {
+					break;
+				}
+				if(skipLine > lineNo++) {
+					continue;
+				}
+				String[] lineArray = line.split(separator);
+				csvList.add(Arrays.asList(lineArray));  // list로 만들어주는 기능을 수행함.
+//				List<String> lineList = new ArrayList<String>();
+//				for(String word: lineArray) {
+//					lineList.add(word);
+//				}
+//				csvList.add(lineList);						// list로 만들어주는 기능은 똑같음
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+		return csvList;
 	}
 
 	@Override
@@ -45,8 +78,8 @@ public class CsvUtilImpl  implements CsvUtil{
 					if(i < data.size() -1 ) {
 						line += separator;
 					}
-					bw.write(line + "\n");
 				}
+				bw.write(line + "\n");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

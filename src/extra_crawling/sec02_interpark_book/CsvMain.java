@@ -20,6 +20,7 @@ public class CsvMain {
 			line.add(ib.getRank() + "");
 			line.add(ib.getTitle());
 			line.add(ib.getAuthor());
+			line.add(ib.getCompany());
 			line.add(ib.getPrice() + "");
 			csvList.add(line);
 		}
