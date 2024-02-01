@@ -14,7 +14,7 @@ public class Number {
 		//2) 1에서 20까지 홀수 제곱의 합을 구하세요.[10]
 
 		int num = 0;
-		for(int i = 0; i <= 20; i++) {
+		for(int i = 0; i <= 20; i++) {     // for(int i = 1; i <= 20; i += 2){ num = i*i;}
 			if(i % 2 == 1){
 				num += i * i;
 			}
@@ -41,7 +41,7 @@ public class Number {
 	}
 	
 	static Boolean isPrime(int num) {
-		for(int i = 2; i <= num; i++ ) {    
+		for(int i = 2; i <= num; i++ ) {    //for(int i = 2; i <= num -1; i++){if(num % i == 0){return false;}return true;}
 			if(num % i == 0 && i != num) {
 				return false;
 			}

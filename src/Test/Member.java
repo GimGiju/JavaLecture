@@ -1,6 +1,6 @@
 package Test;
 
-public class Member {
+public class Member {      // class 타입
 	private int mid;    // id
 	private String name;   //이름
 	private int birthYear;		//생일 나이
@@ -14,9 +14,14 @@ public class Member {
 		this.birthYear = birthYear;
 		this.tel = tel;
 	}
+	
+	// private int getAge(){
+	// LocalDate today = LocalDate.now();   // static 메소드라서 .now가 기울어짐
+	// return today.getYear() - birthYear;
+	// }
 	@Override
 	public String toString() {
-        int age = java.time.Year.now().getValue() - birthYear;
+        int age = java.time.Year.now().getValue() - birthYear; // 바로위에 나이 구하는거랑 동일한 코드
         return "ID: " + mid + ", 이름: " + name + ", 나이: " + age + ", 전화번호: " + tel;
 	}
 	

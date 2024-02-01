@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MemberTest {
+public class MemberTest {     //메인 타입
     public static void main(String[] args) {
     	
         Member one = new Member(1, "James", 1990, "010-1234-5678");
