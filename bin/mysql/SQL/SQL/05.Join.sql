@@ -10,7 +10,7 @@ create table if not EXISTS song(
     sid int primary key auto_increment,
     title varchar(32) not null,
     lyrics varchar(64)
-)auto_increment=100;        # 시작 번호 지정, 시작이 101부터 한다는 뜻
+)auto_increment=101;        # 시작 번호 지정, 시작이 101부터 한다는 뜻
 
 #girl_group table
 create table if not exists girl_group(
@@ -18,7 +18,7 @@ create table if not exists girl_group(
     name varchar(32) not null,
     debut date not null,
     hit_song_id int
-) auto_increment=1000;
+) auto_increment=1001;
 
 /*
  * 2. 데이터 입력

@@ -71,4 +71,12 @@ UPDATE datetable SET regDate=CURDATE(), modTime=NOW() WHERE id=3;
  SELECT DAYOFWEEK(regDate) FROM datetable;
 
 
+ -- 뷰 생성 --
+CREATE VIEW largeCity AS SELECT * FROM city
+	WHERE population>8000000;
+ SELECT * FROM largecity;
+
+ 
+
+
 

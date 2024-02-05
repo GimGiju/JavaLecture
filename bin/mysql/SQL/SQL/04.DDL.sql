@@ -64,7 +64,7 @@ RENAME TABLE kcity TO korCity;
 ALTER TABLE users  
     ADD tel VARCHAR(16) NOT NULL AFTER email;
 
-# users 테이블에서 tel 필드의 not null 제거
+# users 테이블에서 tel 필드의 not null 제거  -- 텔에 새로운 타입을 부여한다고 생각 --
 ALTER TABLE users 
     CHANGE tel tel VARCHAR(16);
 
