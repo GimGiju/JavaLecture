@@ -5,7 +5,7 @@ import java.util.List;
 public interface MessageService {
 	int DELETED = 1;
 	
-Message findByMid(int mid);
+	Message findByMid(int mid);
 	
 	List<Message> getMessageListAll();
 	
@@ -18,4 +18,5 @@ Message findByMid(int mid);
 	void deleteMessage(int mid);
 	
 	void close();
+	
 }

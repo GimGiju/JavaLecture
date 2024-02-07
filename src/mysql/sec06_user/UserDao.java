@@ -1,27 +1,27 @@
-package mysql.sec05_message;
+package mysql.sec06_user;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class MessageDao {
+public class UserDao {
 	private String connStr;
 	private String user;
 	private String password;
 	private Connection conn;
-	
-	public MessageDao() {
+
+	public UserDao() {
 		String path = "C:/Workspace/Java/lesson/src/mysql/mysql.properties";
 		try {
 			Properties prop = new Properties();
 			prop.load(new FileInputStream(path));
-			
+
 			String host = prop.getProperty("host");
 			String port = prop.getProperty("port");
 			String database = prop.getProperty("database");
@@ -33,7 +33,7 @@ public class MessageDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void close() {
 		try {
 			conn.close();
@@ -41,44 +41,49 @@ public class MessageDao {
 			e.printStackTrace();
 		}
 	}
-
-	public Message getMessageByMid(int mid) {
-		String sql = "select * from message where mid=?";
-		Message msg = new Message();
+	
+	public User getUserByUid(String uid) {
+		String sql = "select * from users where uid=?";
+//		User user = new User();
+		User user = null;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mid);
+			pstmt.setString(1, uid);
 			
 			ResultSet rs = pstmt.executeQuery();
-			while (rs.next()) {
-				msg.setMid(rs.getInt(1));
-				msg.setContent(rs.getString(2));
-				msg.setWriter(rs.getString(3));
-				String modTime = rs.getString(4);	// 2024-02-06 16:45:00
-//				System.out.println(modTime);
-				msg.setModTime(LocalDateTime.parse(modTime.replace(" ", "T")));
-//				msg.setModTime(LocalDateTime.parse(rs.getString(4)));
-				msg.setIsDeleted(rs.getInt(5));
+			while(rs.next()){
+//				user.setUid(rs.getString(1));
+//				user.setPwd(rs.getString(2));
+//				user.setUname(rs.getString(3));
+//				user.setEmail(rs.getString(4));
+//				String regDate = rs.getString(5);
+//				user.setRegDate(LocalDate.parse(regDate));
+//				user.setIsDeleted(rs.getInt(6));
+				user = new User(rs.getString(1), rs.getString(2), rs.getString(3), 
+						rs.getString(4), LocalDate.parse(rs.getString(5)),rs.getInt(6));
 			}
-			rs.close(); pstmt.close();
+			rs.close();
+			pstmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return msg;
+		return user;
 	}
 	
-	public List<Message> getMessageListByWriter(String writer) {
-		String sql = "select * from message where writer like ? and isDeleted=0";  // like ? and isDeleted=0"; 반드시 넣어줄것
-		List<Message> list = new ArrayList<Message>();
+	public List<User> getUserList(int num, int offset) {
+		String sql = "select * from users where isDeleted=0"
+					+ " order by regDate desc, uid limit ? offset ?";    //
+		List<User> list = new ArrayList<User>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, writer);
+			pstmt.setInt(1, num);
+			pstmt.setInt(2, offset);
 			
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Message m = new Message(rs.getInt(1), rs.getString(2), rs.getString(3),
-						LocalDateTime.parse(rs.getString(4).replace(" ", "T")), 0);
-				list.add(m);
+				User user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+									LocalDate.parse(rs.getString(5)), rs.getInt(6));
+				list.add(user);
 			}
 			rs.close(); pstmt.close();
 		} catch (Exception e) {
@@ -87,12 +92,14 @@ public class MessageDao {
 		return list;
 	}
 	
-	public void insertMessage(Message msg) {
-		String sql = "insert into message values (default, ?, ?, default, default)";
+	public void insertUser(User user) {
+		String sql = "insert users values (?, ?, ?, ?, default, default)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, msg.getContent());
-			pstmt.setString(2, msg.getWriter());
+			pstmt.setString(1, user.getUid());
+			pstmt.setString(2, user.getPwd());
+			pstmt.setString(3, user.getUname());
+			pstmt.setString(4, user.getEmail());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -101,13 +108,14 @@ public class MessageDao {
 		}
 	}
 	
-	public void updateMessage(Message msg) {
-		String sql = "update message set content=?, writer=?, modeTime=now() where mid=?";
+	public void updateUser(User user) {
+		String sql = "update users set pwd=?, name=?, email=? where uid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, msg.getContent());
-			pstmt.setString(2, msg.getWriter());
-			pstmt.setInt(3, msg.getMid());
+			pstmt.setString(1, user.getPwd());
+			pstmt.setString(2, user.getUname());
+			pstmt.setString(3, user.getEmail());
+			pstmt.setString(4, user.getUid());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -116,11 +124,11 @@ public class MessageDao {
 		}
 	}
 	
-	public void deleteMessage(int mid) {
-		String sql = "update message set isDeleted=1 where mid=?";
+	public void deleteUser(String uid) {
+		String sql = "update users set isDeleted=1 where uid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mid);
+			pstmt.setString(1, uid);
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -128,5 +136,4 @@ public class MessageDao {
 			e.printStackTrace();
 		}
 	}
-	
 }

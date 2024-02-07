@@ -46,9 +46,11 @@ public class Message {
 	}
 	@Override
 	public String toString() {
-		return "Message [mid=" + mid + ", content=" + content + ", writer=" + writer 
-				+ ", modTime=" + modTime.toString().substring(0, 19).replace("T", " ")
-				+ ", isDeleted=" + isDeleted + "]";
+		return String.format("%d  %s  %s  %s", mid, content, writer, 
+							modTime.toString().replaceAll("T", " ").substring(0, 16));
+//		return "Message [mid=" + mid + ", content=" + content + ", writer=" + writer 
+//				+ ", modTime=" + modTime.toString().substring(0, 19).replace("T", " ")
+//				+ ", isDeleted=" + isDeleted + "]";
 	}
 	public int getMid() {
 		return mid;

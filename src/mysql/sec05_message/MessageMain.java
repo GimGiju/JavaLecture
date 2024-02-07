@@ -1,14 +1,15 @@
 package mysql.sec05_message;
 
+import java.util.List;
 import java.util.Scanner;
-
 
 public class MessageMain {
 	private static MessageService messageService = new MessageServiceMySQLImpl();
+//	@Autowired private MessageService messageService;    // 나중에는 위 코드를 이런식으로 사용
 	private static Scanner scan = new Scanner(System.in);
-	
 
 	public static void main(String[] args) {
+		List<Message> list = null;
 		String writer = null, content = null;
 		Message message = null;
 		int mid = 0;
@@ -23,7 +24,9 @@ public class MessageMain {
 			int selectNo = Integer.parseInt(scan.nextLine());
 			switch(selectNo) {
 			case 1:
-				messageService.getMessageListAll(); 
+				list = messageService.getMessageListAll();
+				list.forEach(x -> System.out.println(x));
+				System.out.println();
 				break;
 			case 2:
 				System.out.println("---------------");
@@ -31,7 +34,9 @@ public class MessageMain {
 				System.out.println("---------------");
 				System.out.print("Writer 이름> ");
 				writer = scan.nextLine();
-				messageService.getMessageListByWriter(writer); 
+				list = messageService.getMessageListByWriter(writer);
+				list.forEach(x -> System.out.println(x));
+				System.out.println();
 				break;
 			case 3:
 				System.out.println("---------------");
@@ -57,7 +62,7 @@ public class MessageMain {
 				content = scan.nextLine();
 				message.setWriter(writer);
 				message.setContent(content);
-				messageService.updateMessage(message);
+				messageService.updateMessage(message);     // 인터페이스에서 알려주는 코드 사용
 				break;
 			case 5:
 				System.out.println("---------------");
@@ -75,6 +80,7 @@ public class MessageMain {
 			}
 		}
 		System.out.println("프로그램 종료");
+		messageService.close();
 		scan.close();
 	}
 
