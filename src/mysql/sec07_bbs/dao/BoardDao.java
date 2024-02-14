@@ -78,7 +78,7 @@ public class BoardDao {
 		List<Board>list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, query);
+			pstmt.setString(1, "%"+ query +"%");
 			pstmt.setInt(2, num);
 			pstmt.setInt(3, offset);
 			
